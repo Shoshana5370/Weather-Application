@@ -1,70 +1,4 @@
-// import React, { useEffect, useState } from 'react';
-// import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
-
-// const WeatherWeek = () => {
-//   const [forecastData, setForecastData] = useState(null);
-//   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState(null);
-//   const apiKey = 'f2a80602614f25f210330b413159071e'; // Replace with your OpenWeatherMap API key
-//   const city = 'London';
-//   useEffect(() => {
-//     const fetchHourlyForecast = async () => {
-//       try {
-//         const response = await fetch(
-//           `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`
-//         );
-
-//         if (!response.ok) {
-//           throw new Error('Network response was not ok');
-//         }
-
-//         const data = await response.json();
-//         setForecastData(data);
-//       } catch (error) {
-//         setError(error.message);
-//       } finally {
-//         setLoading(false);
-//       }
-//     };
-
-//     fetchHourlyForecast();
-//   }, [city]);
-
-//   if (loading) {
-//     return <ActivityIndicator size="large" color="#0000ff" />;
-//   }
-
-//   if (error) {
-//     return <Text style={styles.error}>{error}</Text>;
-//   }
-
-//   return (
-//     <View style={styles.container}>
-//       {forecastData && forecastData.list.map((hour, index) => (
-//         <View key={index} style={styles.forecastItem}>
-//           <Text>{new Date(hour.dt * 1000).toLocaleTimeString()}: {hour.main.temp}°C</Text>
-//         </View>
-//       ))}
-//     </View>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     padding: 20,
-//   },
-//   forecastItem: {
-//     marginBottom: 10,
-//   },
-//   error: {
-//     color: 'red',
-//   },
-// });
-
-// export default WeatherWeek;
 import React, { useEffect, useState } from 'react';
-
 import {
   View,
   Text,
@@ -137,9 +71,9 @@ const WeatherWeek = () => {
   };
 
   const getBackgroundColors = (temp) => {
-    if (temp < 10) return ['#74ebd5', '#ACB6E5']; // cold
-    if (temp < 20) return ['#fbc2eb', '#a6c1ee']; // mild
-    return ['#fceabb', '#f8b500']; // warm
+    if (temp < 10) return ['#74ebd5', '#ACB6E5']; 
+    if (temp < 20) return ['#fbc2eb', '#a6c1ee'];
+    return ['#fceabb', '#f8b500']; 
   };
 
   if (loading) {
